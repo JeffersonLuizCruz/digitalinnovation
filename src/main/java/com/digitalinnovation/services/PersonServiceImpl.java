@@ -15,7 +15,7 @@ import com.digitalinnovation.services.exception.NotFoundException;
 @Service
 public class PersonServiceImpl implements PersonService{
 	
-	private PersonRepository personRepository;
+	private final PersonRepository personRepository;
 	
 	@Autowired
 	 public PersonServiceImpl(PersonRepository personRepository) {
