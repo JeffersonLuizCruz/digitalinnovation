@@ -7,5 +7,7 @@ import com.digitalinnovation.entities.Person;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long>{
+	
+	Person findByCpf(String cpf);
 
 }
