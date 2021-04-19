@@ -66,7 +66,7 @@ public class PersonServiceImpl implements PersonService{
 	
 	private Person verifyIfExist(Long id) {
 		Optional<Person> result = personRepository.findById(id);
-		result.orElseThrow(() -> new NotFoundException("Não existe usuário com " + id + "Tipo: " + Person.class));
+		result.orElseThrow(() -> new NotFoundException("Não existe usuário com id: " + id + " Tipo: " + Person.class));
 		
 		return result.get();
 	}

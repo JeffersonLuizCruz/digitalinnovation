@@ -1,10 +1,10 @@
 package com.dio.repositories;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
+import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,11 +21,13 @@ public class PersonTest {
 	
 	@Test
 	public void save() {
-		Person person = new Person(null, "Hugo", "Luiz", "08575874470", LocalDate.now());
-		person.getPhones().add((Phone) Set.of("988053100", "988053501"));
-		person.getPhones().add((Phone) Set.of(PhoneType.COMMERCIAL));
 		
-		assertThat(person.getId()).isEqualTo(null);
+		Phone phone = new Phone();
+		phone.setNumber("988053100");
+		phone.setType(PhoneType.COMMERCIAL);
+		
+		Person person = new Person(null, "Hugo", "Luiz", "08575874470", LocalDate.now());
+		person.getPhones().add(phone);
 		
 		personRepository.save(person);
 	}

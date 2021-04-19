@@ -2,11 +2,12 @@ package com.dio.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,8 +44,9 @@ public class Person implements Serializable{
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate birthDate;
 	
-	@Embedded
-	private Set<Phone> phones = new HashSet<>();
+	@ElementCollection
+	@CollectionTable(name = "phones")
+	private List<Phone> phones = new ArrayList<>();
 
 	public Person(Long id, String firstName, String lastName, String cpf, LocalDate birthDate) {
 		this.id = id;
