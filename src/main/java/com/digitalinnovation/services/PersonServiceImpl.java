@@ -17,7 +17,7 @@ public class PersonServiceImpl implements PersonService{
 	
 	private final PersonRepository personRepository;
 	
-	@Autowired
+	@Autowi
 	 public PersonServiceImpl(PersonRepository personRepository) {
 		this.personRepository = personRepository;
 	}
